@@ -6,6 +6,7 @@ ReactiveVar = Package['reactive-var'].ReactiveVar;
 Tracker = Package.tracker.Tracker;
 Deps = Package.tracker.Deps;
 ECMAScript = Package.ecmascript.ECMAScript;
+moment = Package['momentjs:moment'].moment;
 Meteor = Package.meteor.Meteor;
 global = Package.meteor.global;
 meteorEnv = Package.meteor.meteorEnv;

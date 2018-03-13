@@ -1,9 +1,19 @@
 <template name="taskList">
-    <ul>
-        <!--Para cada tasks (função do Helper)-->
-        {{#each tasks}}
-        <!--Atributo da task-->
-            <li>{{nome}}</li>
-        {{/each}}
-    </ul>
+    <div class="row">
+        <div class="col-xs-12">
+            <!--Para cada tasks (função do Helper)-->
+            {{#each tasks}}
+            <div class="row">
+                <div class="col-xs-11">
+                    <!--Atributo da task-->
+                    {{data}} - {{nome}}
+                </div>
+                <div class="col-xs-1">
+                    <button type="button" class="btn btn-danger">Excluir</button>
+                </div>
+            </div>
+            <hr>
+            {{/each}}
+        </div>
+    </div>
 </template>
