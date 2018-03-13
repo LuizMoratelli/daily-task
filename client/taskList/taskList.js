@@ -1,11 +1,6 @@
 Template.taskList.helpers({
-
-
+    //Função tasks retorna Objeto Tasks de acordo com o filtro
     tasks: function() {
-        return [
-            {nome: "Ir ao mercado"},
-            {nome: "Estudar"},
-            {nome: "Nunca desistir"}    
-        ];
+        return Tasks.find({});
     }
 });

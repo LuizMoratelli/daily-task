@@ -1,0 +1,1 @@
+{"head":"","body":"","js":"\nTemplate.body.addContent((function() {\n  var view = this;\n  return HTML.Raw(\"<h1>Daily-Task</h1>\\n\\n    <ul>\\n        <li>Ir ao mercado</li>\\n        <li>Estudar Js</li>\\n        <li>Comprar ingresso</li>\\n    </ul>\");\n}));\nMeteor.startup(Template.body.renderToDocument);\n","bodyAttrs":{}}

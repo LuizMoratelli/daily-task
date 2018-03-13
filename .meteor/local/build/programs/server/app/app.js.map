@@ -1,0 +1,1 @@
+{"version":3,"sources":["meteor://💻app/models/tasks.js"],"names":["Tasks","Mongo","Collection"],"mappings":";;;;;;;;AAAA;AACAA,QAAQ,IAAIC,MAAMC,UAAV,CAAqB,OAArB,CAAR,C","file":"/app.js","sourcesContent":["//Objeto Tasks = coleção Mongo Tasks\nTasks = new Mongo.Collection(\"Tasks\");\n"]}
