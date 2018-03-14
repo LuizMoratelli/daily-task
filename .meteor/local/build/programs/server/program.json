@@ -147,9 +147,6 @@
       "path": "packages/webapp.js"
     },
     {
-      "path": "packages/autopublish.js"
-    },
-    {
       "node_modules": "npm/node_modules/meteor/ddp-server/node_modules",
       "sourceMap": "packages/ddp-server.js.map",
       "path": "packages/ddp-server.js"

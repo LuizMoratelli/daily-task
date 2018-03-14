@@ -150,7 +150,6 @@ install("server-render", "meteor/server-render/client.js");
 install("shim-common");
 install("es5-shim", "meteor/es5-shim/console.js");
 install("shell-server");
-install("autopublish");
 install("jquery", "meteor/jquery/main.js");
 install("mrt:bootstrap-3");
 install("momentjs:moment");

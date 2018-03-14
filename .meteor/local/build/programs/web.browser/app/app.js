@@ -42,10 +42,15 @@ Template["taskInsert"] = new Template("Template.taskInsert", (function() {
                                                                                                              //
 Template.taskInsert.events({
   "click button[name=insert]": function (e, template) {
-    e.preventDefault();
-    var inputTask = $("#task");
-    var taskName = inputTask.val();
-    Tasks.insert({
+    //evita refresh padrão da página ao enviar formulário
+    e.preventDefault(); //seleciona objeto da DOM que possuir ID task
+
+    var inputTask = $("#task"); //captura o valor do objeto
+
+    var taskName = inputTask.val(); //insere informaçações no Mongo
+    //Tasks.insert({taskName: taskName, taskDate: new Date()});
+
+    Meteor.call("addTask", {
       taskName: taskName,
       taskDate: new Date()
     });
@@ -106,16 +111,18 @@ Template.taskList.helpers({
   tasks: function () {
     return Tasks.find({});
   },
+  //Função de lib para formatar data
   dateConvert: function () {
     return moment(this.taskDate).format('DD/MM/YYYY HH:mm');
   }
 });
 Template.taskList.events({
+  //remove quando o botão de nome remove for clicado, filtrando por _id
   "click button[name=remove]": function (e, template) {
-    var task = this;
-    Tasks.remove({
-      _id: task._id
-    });
+    var task = this; //remove informações do Mongo
+    //Tasks.remove({_id: task._id});
+
+    Meteor.call("removeTask", task._id);
   }
 });
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -139,6 +146,19 @@ Template.body.addContent((function() {
 }));
 Meteor.startup(Template.body.renderToDocument);
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+},"index.js":function(){
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                           //
+// client/index.js                                                                                           //
+//                                                                                                           //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                             //
+Meteor.startup(function () {
+  Meteor.subscribe("Tasks");
+});
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }},"models":{"tasks.js":function(){
@@ -166,4 +186,5 @@ require("/client/taskList/template.taskList.js");
 require("/client/template.index.js");
 require("/client/taskInsert/taskInsert.js");
 require("/client/taskList/taskList.js");
+require("/client/index.js");
 require("/models/tasks.js");
