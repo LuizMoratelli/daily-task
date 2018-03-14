@@ -8,3 +8,10 @@ Template.taskList.helpers({
         return moment(this.taskDate).format('DD/MM/YYYY HH:mm');
     }
 });
+Template.taskList.events({
+    "click button[name=remove]": function(e, template){
+        var task = this;
+
+        Tasks.remove({_id: task._id});
+    }
+});
