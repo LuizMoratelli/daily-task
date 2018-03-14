@@ -7,8 +7,12 @@
         {{> header}}
     </header>
     <main class="container">
-        {{> taskInsert}}
-        <!--Chama um Template-->
-        {{> taskList}}
+        {{#if currentUser}}
+            {{> taskInsert}}
+            <!--Chama um Template-->
+            {{> taskList}}
+        {{else}}
+            <h1>Você deve logar primeiro!</h1>
+        {{/if}}
     </main>
 </body>

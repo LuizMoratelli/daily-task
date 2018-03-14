@@ -154,19 +154,31 @@ install("jquery", "meteor/jquery/main.js");
 install("mrt:bootstrap-3");
 install("momentjs:moment");
 install("underscore");
-install("livedata");
-install("hot-code-push");
+install("ddp-rate-limiter");
+install("localstorage");
 install("observe-sequence");
 install("deps");
 install("htmljs");
 install("blaze");
+install("accounts-base", "meteor/accounts-base/client_main.js");
+install("stylus");
+install("sha");
+install("srp");
+install("accounts-password");
+install("reactive-dict", "meteor/reactive-dict/migration.js");
+install("session");
 install("spacebars");
 install("templating-compiler");
 install("templating-runtime");
 install("templating");
-install("launch-screen");
 install("ui");
+install("anti:i18n");
+install("ian:accounts-ui-bootstrap-3");
+install("livedata");
+install("hot-code-push");
+install("launch-screen");
 install("autoupdate");
+install("service-configuration");
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

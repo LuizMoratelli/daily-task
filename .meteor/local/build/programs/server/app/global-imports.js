@@ -7,6 +7,7 @@ Tracker = Package.tracker.Tracker;
 Deps = Package.tracker.Deps;
 ECMAScript = Package.ecmascript.ECMAScript;
 moment = Package['momentjs:moment'].moment;
+Accounts = Package['accounts-base'].Accounts;
 Meteor = Package.meteor.Meteor;
 global = Package.meteor.global;
 meteorEnv = Package.meteor.meteorEnv;

@@ -126,6 +126,13 @@
       "path": "packages/underscore.js"
     },
     {
+      "sourceMap": "packages/rate-limit.js.map",
+      "path": "packages/rate-limit.js"
+    },
+    {
+      "path": "packages/ddp-rate-limiter.js"
+    },
+    {
       "node_modules": "npm/node_modules/meteor/logging/node_modules",
       "path": "packages/logging.js"
     },
@@ -210,6 +217,34 @@
       "path": "packages/momentjs_moment.js"
     },
     {
+      "sourceMap": "packages/accounts-base.js.map",
+      "path": "packages/accounts-base.js"
+    },
+    {
+      "path": "packages/stylus.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/npm-bcrypt/node_modules",
+      "path": "packages/npm-bcrypt.js"
+    },
+    {
+      "path": "packages/sha.js"
+    },
+    {
+      "path": "packages/srp.js"
+    },
+    {
+      "node_modules": "npm/node_modules/meteor/email/node_modules",
+      "path": "packages/email.js"
+    },
+    {
+      "sourceMap": "packages/accounts-password.js.map",
+      "path": "packages/accounts-password.js"
+    },
+    {
+      "path": "packages/ian_accounts-ui-bootstrap-3.js"
+    },
+    {
       "path": "packages/livedata.js"
     },
     {
@@ -257,6 +292,9 @@
       "node_modules": "npm/node_modules",
       "sourceMap": "app/app.js.map",
       "path": "app/app.js"
+    },
+    {
+      "path": "packages/service-configuration.js"
     }
   ]
 }

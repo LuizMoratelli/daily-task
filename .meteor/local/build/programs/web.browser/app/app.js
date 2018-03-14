@@ -10,7 +10,13 @@ var require = meteorInstall({"client":{"header":{"template.header.js":function()
 Template.__checkName("header");
 Template["header"] = new Template("Template.header", (function() {
   var view = this;
-  return HTML.Raw('<nav class="navbar navbar-default">\n        <div class="navbar-header">\n            <a href="#" class="navbar-brand">\n                Daily-Task\n            </a>\n        </div>\n        <div class="navbar-collapse collapse">\n            <ul class="nav navbar-nav navbar-right">\n\n            </ul>\n        </div>\n    </nav>');
+  return HTML.NAV({
+    class: "navbar navbar-default"
+  }, HTML.Raw('\n        <div class="navbar-header">\n            <a href="#" class="navbar-brand">\n                Daily-Task\n            </a>\n        </div>\n        '), HTML.DIV({
+    class: "navbar-collapse collapse"
+  }, "\n            ", HTML.UL({
+    class: "nav navbar-nav navbar-right"
+  }, "\n                ", Spacebars.include(view.lookupTemplate("loginButtons")), "\n            "), "\n        "), "\n    ");
 }));
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -142,7 +148,13 @@ Template.body.addContent((function() {
     class: "container"
   }, "\n        ", Spacebars.include(view.lookupTemplate("header")), "\n    "), "\n    ", HTML.MAIN({
     class: "container"
-  }, "\n        ", Spacebars.include(view.lookupTemplate("taskInsert")), "\n        ", HTML.Raw("<!--Chama um Template-->"), "\n        ", Spacebars.include(view.lookupTemplate("taskList")), "\n    ") ];
+  }, "\n        ", Blaze.If(function() {
+    return Spacebars.call(view.lookup("currentUser"));
+  }, function() {
+    return [ "\n            ", Spacebars.include(view.lookupTemplate("taskInsert")), "\n            ", HTML.Comment("Chama um Template"), "\n            ", Spacebars.include(view.lookupTemplate("taskList")), "\n        " ];
+  }, function() {
+    return [ "\n            ", HTML.H1("Você deve logar primeiro!"), "\n        " ];
+  }), "\n    ") ];
 }));
 Meteor.startup(Template.body.renderToDocument);
 
