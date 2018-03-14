@@ -1,0 +1,1 @@
+{"head":"","body":"","js":"\nTemplate.__checkName(\"taskInsert\");\nTemplate[\"taskInsert\"] = new Template(\"Template.taskInsert\", (function() {\n  var view = this;\n  return HTML.Raw('<div class=\"row\">\\n        <div class=\"col-xs-12\">\\n            <form>\\n\\n            </form>\\n        </div>\\n    </div>');\n}));\n","bodyAttrs":{}}

@@ -5,6 +5,6 @@ Template.taskList.helpers({
     },
 
     dateConvert: function() {
-        return moment(this.data).fornat('DD/MM/YYYY HH:mm');
+        return moment(this.taskDate).format('DD/MM/YYYY HH:mm');
     }
 });

@@ -627,11 +627,11 @@
       "where": "client",
       "type": "js",
       "cacheable": true,
-      "url": "/app/app.js?hash=9cd34048ea7287c0764ff8562faf4f804ef7556a",
+      "url": "/app/app.js?hash=ace278dc7093bb1d95f4d8cacd08d4d5260b3e93",
       "sourceMap": "app/app.js.map",
-      "sourceMapUrl": "/app/9cd34048ea7287c0764ff8562faf4f804ef7556a.map",
-      "size": 6846,
-      "hash": "9cd34048ea7287c0764ff8562faf4f804ef7556a"
+      "sourceMapUrl": "/app/ace278dc7093bb1d95f4d8cacd08d4d5260b3e93.map",
+      "size": 9673,
+      "hash": "ace278dc7093bb1d95f4d8cacd08d4d5260b3e93"
     },
     {
       "path": "merged-stylesheets.css",

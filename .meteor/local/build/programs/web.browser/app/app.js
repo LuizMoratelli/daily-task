@@ -15,6 +15,45 @@ Template["header"] = new Template("Template.header", (function() {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+}},"taskInsert":{"template.taskInsert.js":function(){
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                            //
+// client/taskInsert/template.taskInsert.js                                                                   //
+//                                                                                                            //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                              //
+
+Template.__checkName("taskInsert");
+Template["taskInsert"] = new Template("Template.taskInsert", (function() {
+  var view = this;
+  return HTML.Raw('<div class="row">\n        <div class="col-xs-12">\n            <form>\n                <div class="form-group">\n                    <label for="task">Task</label>\n                    <input type="text" id="task" class="form-control" placeholder="Your task here...">\n                </div>\n                <div class="form-group">\n                    <button name="insert" type="button" class="btn btn-success btn-block">New task</button>\n                </div>\n            </form>\n        </div>\n    </div>');
+}));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+},"taskInsert.js":function(){
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                            //
+// client/taskInsert/taskInsert.js                                                                            //
+//                                                                                                            //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                                                                              //
+Template.taskInsert.events({
+  "click button[name=insert]": function (e, template) {
+    e.preventDefault();
+    var inputTask = $("#task");
+    var taskName = inputTask.val();
+    Tasks.insert({
+      taskName: taskName,
+      taskDate: new Date()
+    });
+    inputTask.val("");
+  }
+});
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }},"taskList":{"template.taskList.js":function(){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -38,10 +77,10 @@ Template["taskList"] = new Template("Template.taskList", (function() {
       class: "row"
     }, "\n                ", HTML.DIV({
       class: "col-xs-11"
-    }, "\n                    ", HTML.Comment("Atributo da task"), "\n                    ", Blaze.View("lookup:data", function() {
-      return Spacebars.mustache(view.lookup("data"));
-    }), " - ", Blaze.View("lookup:nome", function() {
-      return Spacebars.mustache(view.lookup("nome"));
+    }, "\n                    ", HTML.Comment("Atributo da task"), "\n                    ", Blaze.View("lookup:dateConvert", function() {
+      return Spacebars.mustache(view.lookup("dateConvert"));
+    }), " - ", Blaze.View("lookup:taskName", function() {
+      return Spacebars.mustache(view.lookup("taskName"));
     }), "\n                "), "\n                ", HTML.DIV({
       class: "col-xs-1"
     }, "\n                    ", HTML.BUTTON({
@@ -67,7 +106,7 @@ Template.taskList.helpers({
     return Tasks.find({});
   },
   dateConvert: function () {
-    return moment(this.data).fornat('DD/MM/YYYY HH:mm');
+    return moment(this.taskDate).format('DD/MM/YYYY HH:mm');
   }
 });
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,7 +126,7 @@ Template.body.addContent((function() {
     class: "container"
   }, "\n        ", Spacebars.include(view.lookupTemplate("header")), "\n    "), "\n    ", HTML.MAIN({
     class: "container"
-  }, "\n        ", HTML.Raw("<!--Chama um Template-->"), "\n        ", Spacebars.include(view.lookupTemplate("taskList")), "\n    ") ];
+  }, "\n        ", Spacebars.include(view.lookupTemplate("taskInsert")), "\n        ", HTML.Raw("<!--Chama um Template-->"), "\n        ", Spacebars.include(view.lookupTemplate("taskList")), "\n    ") ];
 }));
 Meteor.startup(Template.body.renderToDocument);
 
@@ -113,7 +152,9 @@ Tasks = new Mongo.Collection("Tasks");
   ]
 });
 require("/client/header/template.header.js");
+require("/client/taskInsert/template.taskInsert.js");
 require("/client/taskList/template.taskList.js");
 require("/client/template.index.js");
+require("/client/taskInsert/taskInsert.js");
 require("/client/taskList/taskList.js");
 require("/models/tasks.js");
